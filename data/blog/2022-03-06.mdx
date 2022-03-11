@@ -1,0 +1,97 @@
+---
+title: 'CSS 박스모델'
+thumbSrc: '/static/images/thumbnail_css.png'
+date: '2022-03-06'
+tags: ['css']
+draft: false
+summary: 'css 박스 모델에 대해 정리했어요!'
+images: ['/static/images/thumbnail_css.png']
+---
+# ✨ 목차
+## 1. 박스모델이란
+## 2. 하위 속성
+### 2.1 padding
+### 2.2 margin
+## 3. box-sizing
+## 4. background
+---   
+# 🎈 박스모델이란
+브라우저가 요소를 렌더링할 때 지정되는 기본적인 사각형 형태의 영역
+- 콘텐츠 영역 `width, height`
+- 안쪽 여백 `padding`
+- 경계선 `border-width`
+- 바깥 여백 `margin`
+---    
+# 🎈하위 속성 
+## padding
+상하좌우 안쪽 여백을 정의하는 개별 속성
+- `padding-top`
+- `padding-bottom`
+- `padding-left`
+- `padding-right`
+
+## margin
+상하좌우 바깥 여백을 정의하는 개별 속성
+- `margin-top`
+- `margin-bottom`
+- `margin-left`
+- `margin-right`
+
+```css
+p{
+    width: 100px;
+    height: 100px;
+    margin: 10px, 20px, 30px, 35px; /*상 우 좌 하(시계방향)*/
+}
+
+div{
+    margin: 10px, 20px, 30px; /*상 좌우 하*/
+}
+
+span{
+    margin: 10px, 20px; /*상하 좌우*/
+}
+```
+---   
+# 🎈 box-sizing
+요소의 너비와 높이를 계산하는 방법을 지정
+- `content-box` : 기본값, 너비와 높이는 콘텐츠 영역만 포함(margin, border, padding 변경 시 박스 사이즈도 변경됨)
+- `border-box` : 너비와 높이에 안쪽 여백과 테두리까지 포함(margin, border, padding 변경 되어도 박스 사이즈 유지)
+```css
+p{
+    box-sizing: border-box;
+    width: 100px; 
+    height: 100px;
+    margin: 10px, 20px, 30px, 35px;
+}
+```
+-> 테두리 포함한 높이와 너비가 100px로 지정됨
+---   
+# 🎈 background
+콘텐츠의 배경을 정의하는 단축 속성
+- `background-color` : 배경색
+- `background-image` : 배경이미지
+- `background-position` : 배경이미지의 초기 위치
+- `background-size` : 배경이미지의 크기
+- `background-repeat` : 배경이미지의 반복 방법
+```css
+div{
+    box-sizing: border-box;
+    width: 400px;
+    height: 400px;
+    border: 5px solid gray;
+    background-image: url(배경이미지경로);
+    background-repeat: no-repeat; /*repeat*/
+    background-position: left top; /*left top(default) right top bottom conter 1개 사용 또는 두 키워드 조합 가능*/
+    background-size: 500px 500px;
+    /*너비 높이, cover(이미지 비율 깨지지 않는 선에서 최대 크기로 지정됨) contian(찌그러지거나 잘리지 않는 선에서 최대 크기)*/
+}
+
+p{
+    box-sizing: border-box;
+    width: 400px;
+    height: 400px;
+    border: 5px solid gray;
+    background: url(배경이미지경로) no-repeat; /*정의, 생략할 속성 다양하게 선택 가능*/
+}
+```

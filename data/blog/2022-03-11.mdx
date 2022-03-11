@@ -1,0 +1,113 @@
+---
+title: 'javascript day1 with dream coding'
+thumbSrc: '/static/images/thumbnail_javascript.png'
+date: '2022-03-08'
+tags: ['javascript']
+draft: true
+summary: '드림코딩 강의와 함께하는 자바스크립트!'
+images: ['/static/images/thumbnail_javascript.png']
+---
+# ✨ 목차
+## 1. 콘솔 출력
+## 2. 브라우저 DevTool
+## 3. 사이트 모음
+## 4. `async` vs `defer`
+## 5. `use strict`
+---   
+# 🎈 콘솔 출력
+- `node.js` 설치 되어있어야함
+- 터미널에 `node` 명령어로 작성한 js파일 실행!
+
+```js
+console.log("Hello World!")
+```
+
+```bash
+node main.js
+```
+
+## 💻 console api
+📎 node.js는
+- 자바 스크립트 엔진이 존재
+- 브라우저 없이도 자바스크립트 파일 실행 가능
+- console api가 있기 때문!
+    - console api는 브라우저가 이해하는 함수임
+    - nodejs와 web api 모두 console api 존재
+📎 vs Live Server
+- 윈도우 기준 `alt + l` + `alt + o`를 통해 라이브 서버로 브라우저에서 확인 가능!
+   
+---
+# 🎈 브라우저 DevTool
+브라우저 - 우클릭 - 검사의 DevTool을 활용해 코드 검사, 디버깅 가능함
+DevTool의 tab들을 활용해서 서버에서 코드 확인해보기!
+
+## 💻 브라우저 DevTool tabs
+### 📎 elements
+html에서 작성한 요소들 확인 검사 가능
+
+### 📎 console
+- 코드에서 작성한 메세지 확인 가능
+- 자바스크립트 실행 가능
+- 요소들 동적 검사 가능
+
+### 📎 source
+작성한 코드들이 보여짐
+디버깅에 활용
+
+### 📎 network
+네트워크 발생, 데이터의 이동 등 확인, 검사 가능   
+
+등등   
+
+---
+# 🎈 사이트 모음
+## 💻 ecma
+- 자바스크립트 공식 사이트
+https://www.ecma-international.org/
+
+
+## 💻 mdn
+- Resources for Developers, by Developers
+https://developer.mozilla.org/
+
+## 💻 w3school
+https://www.w3schools.com/
+   
+---
+# 🎈 `async` vs `defer`
+## 💻 `<head>`안에 script 파일을 담으면?
+- 브라우저가 html을 한 줄 씩 parsing하며 Dom요소로 변환함
+- `<script>`태그를 읽고 해당 경로의 js파일을 서버에서 다운받고 실행
+
+-> 웹사이트 로딩 시간이 길어짐
+
+## 💻 `<body>` 마지막에 script 파일을 담으면?
+- 브라우저가 html파일 parsing, 페이지 준비
+- 이후 `<script>` fetching
+
+-> 사용자가 빨리 콘텐츠 볼 수 있음, 그러나 정상적인 페이지를 보는 시간 소요!
+
+## 💻 `<head>`안에 `<script>` + `async`속성값 부여
+- 브라우저가 html파일 parsing, js파일 다운 병렬 처리
+- js파일 실행된 이후 나머지 html파일 parsing
+- 정의된 스크립트 순서와 상관 없이 먼저 다운로드 되면 실행
+
+->  `<body>` 마지막에 script파일 담을 때보다 시간 절약 가능,
+but 정상 페이지 작동에 문제가 생김
+
+## 💻 `<head>`안에 `<script>` + `defer`속성값 부여
+- 브라우저가 html파일 parsing, js파일 다운 명령
+- parsing 하는 동안 fetching
+- 페이지 로드가 완료되면 순서대로 executing
+   
+---
+# 🎈 `use strict`
+- 순수 자바스크립트 사용 시 js파일 제일 처음에 쓰는 것 권장
+- 유연한 언어인 javascript 사용 시 오류 방지 위해 엄격 모드를 실행하는 것
+
+```javascript
+'use strict'
+
+console.log("Hello World!")
+```
+---

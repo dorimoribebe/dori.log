@@ -1,0 +1,120 @@
+---
+title: 'CSS position 속성'
+thumbSrc: '/static/images/thumbnail_css.png'
+date: '2022-03-08'
+tags: ['css']
+draft: false
+summary: 'css position 속성 정리'
+images: ['/static/images/thumbnail_css.png']
+---
+# ✨ 목차
+## 1. position
+### 1.1 relative
+### 1.2 absolute
+### 1.3 fixed
+### 1.4 sticky
+---   
+# 🎈 position
+문서 상에 요소를 배치하는 방법을 정의 
+
+## 💻 속성 파헤치기
+### 📎 `position : relative;`
+- 일반적인 문서 흐름에 따라 배치, 상하좌우 위치값에 따라 오프셋 적용
+- 오프셋 : 위치를 이동시키겠다
+```html
+<html> 
+<head>
+    <style>
+      div{
+         width: 100px;
+         height: 100px;
+         background: blue;
+         position : relative;
+         top: 100px;
+         left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">aa</div>
+    <div class="b">aa</div>
+    <div class="c">aa</div>
+    <p>test</p>
+</body>
+</html>
+```
+-> 원래 위치보다 위에서 100px, 왼쪽에서 100px 떨어지게 위치
+
+### 📎 `position : absolute;`
+- 일반적인 문서 흐름에서 제거, 상위 요소 중 가장 가까운 position에 대해 상대적 오프셋 적용
+```html
+<html>
+<head>
+    <style>
+    div.a{
+         width: 100px;
+         height: 100px;
+         background: blue;
+         position : relative;
+        }
+
+    div.b{
+         width: 100px;
+         height: 100px;
+         background: red;
+         position : absolute;
+         top: 100px;
+         left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        aa
+        <div class="b">bb</div>
+    </div>
+    <p>test</p>
+</body>
+</html>
+```
+-> relative가 적용된 aa div를 기준으로 오프셋 적용
+
+### 📎 `position : fixed;`
+- 일반적인 문서 흐름에서 제거, 지정된 위치에 고정시킴
+```css
+.pos{
+    width: 200px;
+    height: 200px;
+    background: red;
+    position : fixed;
+    top: 50px;
+    left: 50px;
+}
+```
+-> 스크롤과 관계 없이 위, 왼쪽기준 50px 떨어진 자리에 고정
+
+### 📎 `position : sticky;`
+- 일반적인 문서 흐름에 배치, 스크롤되는 가장 가까운 상위 요소에 대해 오프셋 적욛
+```css
+.pos{
+    width: 200px;
+    height: 200px;
+    background: red;
+    position : sticky;
+    top: 0px;
+}
+```
+-> position의 top이 0px 되었을 때부터 위치 고정
+
+```css
+.pos{
+    width: 200px;
+    height: 200px;
+    background: red;
+    position : sticky;
+    bottom: 0px;
+}
+```
+-> position의 bottom이 0px 되었을 때부터 위치 고정

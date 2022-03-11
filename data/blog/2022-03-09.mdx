@@ -1,0 +1,54 @@
+---
+title: 'CSS flexbox'
+thumbSrc: '/static/images/thumbnail_css.png'
+date: '2022-03-08'
+tags: ['css']
+draft: false
+summary: 'css flexbox 정리'
+images: ['/static/images/thumbnail_css.png']
+---
+# ✨ 목차
+## 1. flexbox란
+## 2. flex-direction
+## 3. flexbox 다루기
+---   
+# 🎈 flexbox란
+- 박스 내 요소 간 공간 배분, 정렬하는 1차원 레이아웃 모델! 행과 열을 기준으로 다룸
+- 박스 내 요소가 박스보다 커지면 알아서 줄이는 것!
+```css
+div{
+    display: flex;
+}
+```
+-> `flexbox` : 자식 요소가 가지고 있는 기본 margin 무시, 자신의 진행방향대로 요소 배치
+    
+---
+# 🎈 flex-direction
+- `flex-direction: row`: 행 기준 콘텐츠 방향으로 배치
+- `flex-direction: row-reverse`: 행 기준 콘텐츠 반대 방향으로 배치
+- `flex-direction: column`: 열 기준 콘텐츠 방향으로 배치
+- `flex-direction: column-reverse`: 열 기준 콘텐츠 반대 방향으로 배치
+
+# 🎈 flexbox 다루기
+## 💻 `justify-content`
+좌우 기준 정렬
+- `justify-content: center` : 좌우 기준 가운데 배치
+- `justify-content: flex-start` : 좌우 기준 앞쪽 배치
+- `justify-content: flex-end` : 좌우 기준 끝쪽 배치
+- `justify-content: space-around` : 좌우 기준 동일 간격 띄우며 배치
+- `justify-content: space-between` : 좌우 기준 요소 양끝에 배치 후 동일 간격 띄우기
+   
+## 💻 `align-items`
+상하 기준 정렬
+- `align-items: center` : 상하 기준 가운데 배치
+- `align-items: flex-start` : 상하 기준 앞쪽 배치
+- `align-items: flex-end` : 상하 기준 끝쪽 배치
+   
+## 💻 `align-self`
+flexbox의 개별 요소에게 설정할 수 있는 속성. 상하를 기준으로 요소 하나를 배치
+- `align-self: flex-start` 
+- `align-self: flex-end`
+   
+## 💻 `flex-wrap`
+- `flex-wrap: nowrap` : default, flexbox에 맞추어 요소가 자동 크기 설정됨
+- `flex-wrap: wrap` : flexbox의 크기를 넘어가면 자동 개행

@@ -1,16 +1,16 @@
 const siteMetadata = {
-  title: '',
-  author: '',
-  headerTitle: '',
-  description: '',
+  title: 'dorimori synergy',
+  author: 'dori',
+  headerTitle: 'synergy',
+  description: '생각의 시너지',
   language: 'ko-KR',
   siteUrl: '',
-  siteRepo: '',
+  siteRepo: 'https://github.com/dorimoribebe/dori.log',
   siteLogo: '/static/images/로고이름.png',
   image: '/static/images/프로필사진.png',
   socialBanner: '/static/images/social-banner.png',
-  email: '',
-  github: '',
+  email: 'dorimoribe@gmail.com',
+  github: 'https://github.com/dorimoribebe',
   linkedin: '',
   locale: 'ko-KR',
   analytics: {
@@ -19,7 +19,7 @@ const siteMetadata = {
   comment: {
     provider: 'utterances',
     utterancesConfig: {
-      repo: '유저네임/레포네임',
+      repo: 'dorimoribebe/dori.log',
       issueTerm: 'title',
       label: 'Comment 💬',
       theme: 'github-light',

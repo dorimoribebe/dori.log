@@ -1,11 +1,12 @@
 ---
-name: 이름
-avatar: /static/images/프로필사진.png
-occupation: 타이틀
-company: 컴패니
-email: 이메일주소
-linkedin: 링크드인주소
-github: 깃헙주소
+name: dori
+avatar: /static/images/dorimori_logo.jpg
+occupation: dorimori synergy
+company: welcome
+email: dorimoribe@gmail.com
+linkedin: ˚✧₊⁺˳༚
+github: https://github.com/dorimoribebe
 ---
 
-자기 소개하기
+༚˚⁺˳✧₊성장하는 개발자 도리˚✧₊⁺˳༚   
+✨상상 💻기술 🐱‍🏍실현

@@ -1,0 +1,52 @@
+---
+title: 'CSS display와 border'
+thumbSrc: '/static/images/thumbnail_css.png'
+date: '2022-03-05'
+tags: ['css']
+draft: false
+summary: 'css display속성과 border속성을 정리했어요~'
+images: ['/static/images/thumbnail_css.png']
+---
+# ✨ 목차
+## 1. 블록 레벨 요소와 인라인 요소
+## 2. display 속성
+## 3. border 속성
+---   
+# 🎈 블록 레벨 요소와 인라인 요소
+## 💻 블록 레벨 요소
+- 자기가 속한 영역의 너비를 모두 차지하여 블록 형성
+- `div`, `p`, `h1` 등
+
+## 💻 인라인 요소
+- 자기에게 필요한 만큼의 공간만 차지
+- `span`, `a` 등 
+---   
+# 🎈 display 속성
+선택된 요소를 블록, 인라인 요소 중 어느 쪽으로 처리할지 정의
+
+- `display: inline` : 블록레벨 요소를 인라인으로 처리
+```css
+div{
+    display: inline;
+}
+```
+
+- `display: block` : 인라인 요소를 블록레벨로 처리
+```css
+a{
+    display: block;
+}
+```
+---   
+# 🎈 border 속성
+요소가 차지하고 있는 영역에 테두리를 그릴 수 있음(단축속성)
+```css 
+span{
+    border: 2px solid green;
+}
+```
+-> `span`태그에 2픽셀 초록색 직선 테두리 그림
+- 기타 속성
+    - `border-color`
+    - `border-width` : thin, medium, thick, px, em. rem
+    - `border-style` : none, solid, dotted, dashed

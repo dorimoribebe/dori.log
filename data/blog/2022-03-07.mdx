@@ -1,0 +1,85 @@
+---
+title: 'CSS float 속성'
+thumbSrc: '/static/images/thumbnail_css.png'
+date: '2022-03-07'
+tags: ['css']
+draft: false
+summary: 'css float clear 속성 정리'
+images: ['/static/images/thumbnail_css.png']
+---
+# ✨ 목차
+## 1. float
+## 2. clear
+---     
+# 🎈 float
+요소가 문서의 일반적인 흐름에서 제외되어 배치됨, 필요한 공간만큼 차지
+- `none` : default
+- `left` : 자신 포함 박스의 왼쪽에 떠오름 
+- `right` : 자신 포함 박스의 오른쪽에 떠오름
+```html
+<html>
+<head>
+    <style> 
+        .a{
+            width: 100px;
+            height: 300px;
+            background : orange;
+            float: right;
+        }
+
+        .b{
+            width: 200px;
+            height: 500px;
+            background : blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a"></div>
+    <div class="b"></div>
+    <p>test</p>
+</body>
+</html>
+```
+# 🎈 clear
+float 요소 이후에 표시되는 요소에게 float해제, float 아래로 위치
+- `clear: none` : default, 아래로 이동되지 않음
+- `clear: left` : `float: left`인 요소의 아래로 위치
+- `clear: right` : `float: right`인 요소의 아래로 위치
+- `clear: both` : `float`요소의 아래로 위치
+```html
+<html>
+<head>
+    <style>
+        .a{
+            width: 100px;
+            height: 300px;
+            background : orange;
+            float: right;
+        }
+        
+        .b{
+            width: 100px;
+            height: 300px;
+            background : red;
+            float: left;
+        }
+
+        .c{
+            clear: both;
+            width: 200px;
+            height: 500px;
+            background : blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <p>test</p>
+</body>
+</html>
+```
