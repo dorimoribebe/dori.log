@@ -1,0 +1,107 @@
+---
+title: 'learning javascript day2 데이터타입'
+thumbSrc: '/static/images/thumbnail_javascript.png'
+date: '2022-03-12'
+tags: ['javascript']
+draft: false
+summary: '자바스크립트의 데이터타입을 정리해보았어요!'
+images: ['/static/images/thumbnail_javascript.png']
+---
+# ✨ INDEX
+## 1. Variable
+## 2. Constants
+## 3. variable types
+## 4. 
+## 5. 
+---   
+# 🎈 variable
+variable : 변경될 수 있는 값(added in ES6)
+- `let` : javascript에서 변수는 딱 하나!
+- block scope : `{}`, 블럭 안의 코드는 지역변수, 블럭 밖의 변수는 전역변수
+```js
+let text = 'Hello World!';
+console.log(text);
+```
+📎 var
+- var hoisting : move declaraion from bottom to top
+- `var` : block scpoe 무시하는 변수 -> 사용 권장하지 않음
+
+
+
+---
+# 🎈 Constants
+Constants : 한 번 값을 할당하면 그 값이 변하지 않음.
+| favor immutable data type always
+- security
+- thread safety
+- reduce numan mistakes
+
+## 💻 예제1
+```js
+const text = 'Hello World!';
+console.log(text);
+```
+> Hello World!
+   
+---
+# 🎈variable types
+- primitive, single item : number, string, boolean, null, undefine, symbol
+- object : function, first-class function
+
+## 💻 number
+- `number`, `bigint`, `Infinity`, `Infinity`, `NaN`
+
+### 📎 예제
+```js
+const num1 = 1;
+const num2 = 1.222;
+const num_big = 12345678901234567890n; //지원 안되는 경우 존재
+console.log('num1 :', num1, ', type :', typeof num1);
+console.log('num2 :', num2, ', type :', typeof num2);
+console.log('num_big :', num_big, ', type :', typeof num_big);
+```
+
+> num1 : 1 , type : number  
+    num2 : 1.222 , type : number    
+    num_big : 12345678901234567890n , type : bigint
+
+
+### 📎 예제2
+```js
+const num3 = 1 / 0;
+const num4 = -1 / 0;
+const num5 = 'not a number' / 1;
+
+console.log(num3);
+console.log(num4);
+console.log(num5);
+```
+> Infinity    
+    -Infinity    
+    NaN
+
+## 💻 string
+### 📎 예제1
+```js
+const user = "dori";
+const date = "2022-03-12";
+
+console.log(user, typeof user);
+console.log(date, typeof date);
+```
+> dori string   
+    2022-03-12 string
+
+### 📎 예제2
+```js
+let world = 'javascript';
+let text = `hello ${world}`;
+
+console.log(`text : ${text}, type: ${typeof text}`);
+```
+> text : hello javascript, type: string
+
+## 💻 boolean
+- `false` : 0, null, undefine, NaN, ''
+- `true` : any other value
+---
