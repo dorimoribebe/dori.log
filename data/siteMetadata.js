@@ -4,7 +4,7 @@ const siteMetadata = {
   headerTitle: 'synergy',
   description: 'on the next level!🐱‍🏍',
   language: 'ko-KR',
-  siteUrl: '',
+  siteUrl: 'https://dorilog.vercel.app/',
   siteRepo: 'https://github.com/dorimoribebe/dori.log',
   siteLogo: '/static/images/site_logo.png',
   image: '/static/images/dorimori_logo.png',
@@ -14,7 +14,7 @@ const siteMetadata = {
   linkedin: '',
   locale: 'ko-KR',
   analytics: {
-    googleAnalyticsId: '(옵션)',
+    googleAnalyticsId: '305101240',
   },
   comment: {
     provider: 'utterances',
