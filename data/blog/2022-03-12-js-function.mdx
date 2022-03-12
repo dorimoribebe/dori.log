@@ -1,0 +1,133 @@
+---
+title: 'javascript day3 - function'
+thumbSrc: '/static/images/thumbnail_javascript.png'
+date: '2022-03-12'
+tags: ['javascript']
+draft: false
+summary: '자바스크립트의 함수를 공부하고 정리해보았어요!'
+images: ['/static/images/thumbnail_javascript.png']
+---
+# ✨ 목차
+## 1. function
+## 2. callback function
+## 3. arrow function
+## 4. IIFE
+---   
+# 🎈 function
+## 💻 함수 작성법
+```js
+function function_name(parameter){
+    // code here;
+    // return;
+}
+function_name(); // 함수 호출
+```
+   
+## 💻 함수를 통해 배열 출력하기
+```js
+function printAll(...args){
+    // 1
+    for(let i=0; i<args.length; i++){
+        console.log(args[i]);
+    }
+
+    // 2
+    for(const arg of args){
+        console.log(arg);
+    }
+
+    // 3
+    args.forEach((args) => console.log(args));
+}
+
+printAll('hello', 'world', '!');
+```
+> hello
+        world
+        !
+   
+## 💻 리턴 함수
+```js
+// 리턴 함수
+function sum(a, b){
+    return a + b;
+}
+const result = sum(1,2);
+console.log(result);
+```
+> 3
+   
+## 💻 anonymous function
+```js
+const print = function(){
+    console.log('print')
+}
+print();
+const sumAgain = sum;
+console.log(sumAgain(1,3));
+```
+> 3
+   
+---
+# 🎈 callback function
+- 다른 함수의 인자로써 넘겨진 후 특정 이벤트에 의해 호출되는 함수
+- 시스템에 의해 호출 시점이 결정되는 함수
+```js
+function Quiz(answer, ans_right, ans_wrong){
+    if(answer === "javascript"){
+        ans_right();
+    }else{
+        ans_wrong();
+    }
+}
+
+const ans_right = function(){
+    console.log('Right Answer!✨')
+}
+
+const ans_wrong = function(){
+    console.log('Wrong Answer.. 😢')
+}
+
+Quiz('javascript', ans_right, ans_wrong);
+Quiz('java', ans_right, ans_wrong);
+```
+> Right Answer!✨
+        Wrong Answer.. 😢
+
+   
+---
+# 🎈 arrow function
+- `=>`를 통해 짧게 함수 표현 가능
+- `const printHi = () => {console.log('Hi')}`
+```js
+const Quiz = (answer, ans_right, ans_wrong) => {
+    answer === "javascript"? ans_right() : ans_wrong();
+}
+
+const ans_right = () => console.log('Right Answer!✨');
+const ans_wrong = () => console.log('Wrong Answer.. 😢');
+
+Quiz('javascript', ans_right, ans_wrong);
+Quiz('java', ans_right, ans_wrong);
+```
+> Right Answer!✨
+        Wrong Answer.. 😢
+   
+---
+# 🎈 IIFE
+- 즉시 실행 함수
+- `(함수코드)();`
+```js
+const print = () => {console.log('hello!')};
+print();
+
+const print2 = (() => {console.log('hello!')})();
+```
+> hello!
+        hello!
+
+
+
+
+<img src="/static/images/dorimori_logo_long.jpg" height="80px" title="logo" alt="dorimori_logo"></img>
