@@ -1,0 +1,87 @@
+---
+title: 'javascript day4 - class'
+thumbSrc: '/static/images/thumbnail_javascript.png'
+date: '2022-03-12'
+tags: ['javascript']
+draft: false
+summary: '자바스크립트의 함수를 공부하고 정리해보았어요!'
+images: ['/static/images/thumbnail_javascript.png']
+---
+# ✨ 목차
+## 1. class declaration
+## 2. getter & setter
+## 3. fields
+## 4. Static
+---   
+# 🎈 class declaration
+```js
+'use strict'
+class Person{
+    // constructor
+    constructor(name, age){
+        //fields
+        this.name = name;
+        this.age = age;
+    }
+
+    // method
+    speak(){
+        console.log(`${this.name}(${this.age}): hola!`);
+    }
+}
+
+// object
+const dori = new Person('dori', '100');
+
+console.log(dori.name);
+console.log(dori.age);
+dori.speak();
+```
+> dori
+        100
+        dori(100): hola!
+   
+---
+# 🎈 getter & setter
+```js
+class Emp{
+    constructor(name, age, job){
+        this.name = name;
+        this.age = age;
+        this.job = job;
+    }
+
+    get age(){
+        return this._age;
+    }
+
+    set age(value){
+        this._age = value < 0 ? 0 : value;
+    }
+}
+
+const emp1 = new Emp('dori', -100, 'frontend developer');
+console.log(`${emp1.name}(${emp1.age}) is ${emp1.job}`);
+```
+> dori(0) is frontend developer
+   
+
+---
+# 🎈 fields
+- 최근 추가되어 지원하지 않는 브라우저가 많음
+## 💻 public fields
+`publicField = 2` : 외부에서 접근 가능한 public fields
+   
+## 💻 private fields
+`#privateField = 2`: 외부에서 접근 불가능 한 private field
+   
+---
+# 🎈 static
+- 최근 추가되어 지원하지 않는 브라우저가 많음
+`static user = 'dori'` : 클래스가 가지고 있는 고유한 값을 지정하기 위해 사용
+   
+---
+# 📎 자바스크립트 내장 객체 참고 사이트
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference
+
+<img src="/static/images/dorimori_logo_long.jpg" height="80px" title="logo" alt="dorimori_logo"></img>
