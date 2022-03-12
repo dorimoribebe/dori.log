@@ -1,0 +1,120 @@
+---
+title: 'javascript day4 - object'
+thumbSrc: '/static/images/thumbnail_javascript.png'
+date: '2022-03-13'
+tags: ['javascript']
+draft: false
+summary: '자바스크립트의 객체에 대해 공부했어요!'
+images: ['/static/images/thumbnail_javascript.png']
+---
+# ✨ 목차
+## 1. Literals and properties
+## 2. Computed properties
+## 3. Constructor Function
+## 4. in operator
+## 5. Cloning
+---   
+# 🎈 object
+- declaration : `object = {key : value}`
+- object leteral syntax : `const obj1 = {};`
+- object constructor syntax : `const onj2 = new Object();`
+    
+## 💻 code
+```js
+const author = {name: 'dori', job: 'developer'};
+console.log(author);
+console.log(typeof author);
+```
+> `{ name: 'dori', job: 'developer' }`   
+        `object`
+   
+
+## 💻 code
+```js
+const dori = {name: 'dori', job: 'developer'};
+
+const print = (author) => {
+    console.log(author.name, author.job);
+}
+
+print(dori);
+```
+> dori developer
+   
+---
+# 🎈 Computed properties
+## 💻 code
+```js
+const dori = {name: 'dori', job: 'developer'};
+console.log(dori.name);
+console.log(dori['name']); // key should be always string !!!
+```
+> dori   
+        dori
+   
+---
+# 🎈 Constructor Function
+## 💻 code
+```js
+function Teacher(name, subject){
+    this.name = name;
+    this.subject = subject;
+}
+const teacher1 = new Teacher('dori', '50');
+console.log(teacher1);
+```
+> `Teacher { name: 'dori', subject: '50' }`
+
+   
+--- 
+# 🎈 in operator
+## 💻 code
+```js
+console.log('name' in teacher1);
+console.log('age' in teacher1);
+teacher1.age;
+```
+> true   
+    false   
+    undefined
+   
+---
+# 🎈 Cloning
+## 💻 code
+```js
+const user = {name: 'dori', age: '100'}
+const user2 = user;
+console.log(user, user2);
+```
+> `{ name: 'dori', age: '100' } { name: 'dori', age: '100' }`   
+   
+## 💻 code
+```js
+const user = {name: 'dori', age: '100'}
+const user3 = {}
+Object.assign(user3, user);
+console.log(user3);
+```
+> `{ name: 'dori', age: '100' }`
+   
+## 💻 code
+```js
+const user4 = Object.assign({}, user);
+console.log(user4);
+```
+> `{ name: 'dori', age: '100' }`
+
+   
+## 💻 code
+```js
+const nike1 = {color1: 'black'};
+const nike2 = {color1: 'black', color2: 'white'};
+const nike3 = {color1: 'white', color2: 'grey', color3: 'sky'};
+
+const random = Object.assign({}, nike1, nike2, nike3);
+console.log(random.color1, random.color2, random.color3);
+```
+> white grey sky
+- `Object.assign`안의 순서대로 덮어쓰기!
+
+<img src="/static/images/dorimori_logo_long.jpg" height="80px" title="logo" alt="dorimori_logo"></img>
