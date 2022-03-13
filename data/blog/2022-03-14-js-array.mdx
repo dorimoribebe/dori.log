@@ -1,0 +1,193 @@
+---
+title: 'javascript day4 - array'
+thumbSrc: '/static/images/thumbnail_javascript.png'
+date: '2022-03-14'
+tags: ['javascript']
+draft: false
+summary: '자바스크립트의 배열에 대해 정리했어요!'
+images: ['/static/images/thumbnail_javascript.png']
+---
+# ✨ 목차
+## 1. 배열 선언, 출력
+## 2. 배열 삽입, 삭제
+## 3. 배열 참조
+## 4. concat
+## 5. slice, reverse
+---   
+# 🎈 배열 선언, 출력
+## 💻 배열 선언 : `[]`
+```js
+const colors = [ 'red', 'blue', 'yellow', 'green' ]
+console.log(colors);
+```
+> [ 'red', 'blue', 'yellow', 'green' ]
+
+## 💻 배열 출력
+```js
+const colors = [ 'red', 'blue', 'yellow', 'green' ]
+console.log(colors[1]); // 1번 인덱스의 value
+console.log(colors.length); // colors 배열의 길이
+```
+> blue    
+    4
+
+## 💻 반복문으로 배열 전체 출력
+### 📎 for
+```js
+const colors = [ 'red', 'blue', 'yellow', 'green' ]
+for(let i=0; i<=colors.length; i++){
+    console.log(colors[i]); // colors[0] 부터 colors[colors.length]까지 출력
+}
+```
+
+### 📎 for of
+```js
+const colors = [ 'red', 'blue', 'yellow', 'green' ]
+for(let color of colors){
+    console.log(color);
+}
+```
+
+### 📎 foreach
+```js
+colors.foreach(colors => console.log(colors));
+```
+
+위 셋 모두 같은 결과
+> red    
+    blue    
+    yellow    
+    green
+
+   
+---
+# 🎈 배열 삽입, 삭제
+## 💻 `push`, `pop`
+- `push` : add an item to the end
+- `pop` : remove an item to the end, return it
+
+```js
+// push
+const colors = [ 'red', 'blue', 'yellow', 'green' ]
+colors.push('gray');
+console.log(colors);
+console.log(colors.toString());
+```
+> [ 'red', 'blue', 'yellow', 'green', 'gray' ]    
+    red, blue, yellow, green, grey
+
+```js
+// pop
+const color1 = colors.pop(); 
+console.log(colors);
+console.log(color1);
+```
+> [ 'red', 'blue', 'yellow', 'green' ]   
+    grean
+
+## 💻 `unshift`, `shift`
+- `unshift` : add an item from the beginning
+- `shift` : remove un item from the beginning
+
+```js
+colors.unshift('purple', 'white');
+console.log(colors);
+```
+> [ 'purple', 'white', 'red', 'blue', 'yellow', 'green' ]
+
+```js
+colors.shift();
+colors.shift();
+console.log(colors); 
+```
+> [ 'red', 'blue', 'yellow', 'green' ]
+
+### 📎 참고
+`unshift`, `shift`는 매우 느림! : 빈 공간에 넣고빼고인 push, pop과는 다르게 전체의 데이터를 움직여 하나씩 교체해야하기 때문!(당겨오기)
+```js
+const han = ['가', '나', '다', '라', '마'];
+```
+- `han.shift()` -> han[0]인 '가'제거 -> `han = ['', '나', '다', '라', '마']`
+- han[0]의 빈자리에 han[1] 당겨와 삽입 -> `han = ['나', '', '다', '라', '마']`
+- han[1]의 빈자리에 han[2] 당겨와 삽입 -> `han = ['나', '다', '', '라', '마']` ... 반복
+- 배열 전체를 읽고 제거, 당겨와 삽입이 반복되기 때문에 배열이 길어길 수록 매우 느려짐(비효율)
+
+   
+---
+
+   
+## 💻 `splice`
+- `splice` : remove an item by index position
+
+```js
+// splice(start: number, deleteCount?: number): T[];
+colors.splice(0,2);
+console.log(colors); // 0번부터 2개까지 삭제
+```
+> [ 'yellow', 'green' ] 
+
+```js
+colors.splice(0); // 0번부터 모두 삭제
+console.log(colors);
+```
+> []
+
+```js
+colors.push('red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple');
+colors.splice(3,1); // 3번부터 1개 삭제
+console.log(colors); 
+```
+> [ 'red', 'orange', 'yellow', 'blue', 'navy', 'purple' ]
+
+
+```js
+colors.splice(1,1,'black'); // 1번 1개 삭제, 그 자리에 black 넣기
+console.log(colors); 
+```
+> [ 'red', 'black', 'yellow', 'blue', 'navy', 'purple' ]
+   
+---
+# 🎈 배열 참조 : `indexOf`, `lastIndexOf`,`includes`
+- `indexOf` :  배열의 인덱스 출력, 없으면 -1, 같은 데이터 있을 때 가장 처음 데이터의 인덱스 출력
+- `lastIndexOf` : 해당 데이터 중 가장 마지막 인덱스 출력
+- `includes` : 배열에 값이 존재하는지 검사, true, false
+
+```js
+const colors = ['red', 'black','yellow', 'blue', 'navy', 'purple', 'gray', 'white'];
+console.log(colors.indexOf('purple')); // 5
+console.log(colors.indexOf('brown')); // -1
+console.log(colors.lastIndexOf('red')); // 0
+console.log(colors.includes('brown'), colors.includes('red')); // false, true
+```
+
+   
+---
+# 🎈 `concat`
+- `concat` : combine two arrays
+- 배열 합체, 배열1.concat(배열2) -> [배열1전체, 배열2 전체]
+```js
+const colors = ['red', 'black','yellow', 'blue', 'navy', 'purple'];
+const colors2 = ['gray', 'white'];
+const allcolors = colors.concat(colors2);
+console.log(allcolors);
+```
+> ['red', 'black', 'yellow','blue', 'navy', 'purple', 'gray', 'white']
+
+
+---
+# 🎈 `slice`, `reverse`
+- `slice(start?: number, end?: number)` : 자르기(start, end) -> start~end-1까지
+- `reverse` : 뒤집기
+```js
+const colors = ['red', 'black','yellow', 'blue', 'navy', 'purple'];
+const color3 = colors.slice(2,5);
+console.log(color3);
+console.log(color3.reverse());
+```
+> [ 'yellow', 'blue', 'navy' ]    
+    [ 'navy', 'blue', 'yellow' ]
+
+---
+
+
+<img src="/static/images/dorimori_logo_long.jpg" height="80px" title="logo" alt="dorimori_logo"></img>
