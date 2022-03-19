@@ -1,0 +1,130 @@
+---
+title: '자바스크립트 크롭 앱 구현하기 day1'
+thumbSrc: '/static/images/thumbnail_javascript.png'
+date: '2022-03-19'
+tags: ['javascript']
+draft: false
+summary: '노마드코더 바닐라 JS로 크롬 앱 만들기 day1!'
+images: ['/static/images/thumbnail_javascript.png']
+---
+# ✨ 목차
+## 1. prompt()
+## 2. prompt() 함수를 이용한 나이 확인 프로그램
+---   
+# 🎈 prompt()
+​
+`function prompt(message?: string, _default?: string): string`
+​
+-   prompt()는 함수, 파라미터로 string 값을 받는다.
+-   prompt()는 답이 들어올 때까지 페이지의 동작을 멈추는 함수
+-   때문에 최근에는 굳이 잘 쓰지 않는 함수이다
+​
+---
+​
+# 🎈 prompt() 함수를 이용한 나이 확인 프로그램
+​
+-   prompt로 나이를 물어본다.
+-   prompt의 경우 파라미터로 string을 받기 때문에 정수형으로 변환한다.
+-   나이가 아닌 값을 입력할 때는 다시 입력받는다.
+-   0부터 19세의 경우 미성년자, 20부터 150세의 경우 성인으로 구분한다.
+​
+---
+​
+## 💻 오늘도 삽질
+​
+```js
+while (true) {
+  const age = parseInt(prompt("How old are you?"));
+​
+  console.log(age);
+​
+  if (age <= 0) {
+    prompt("0보다 작은 값은 입력할 수 없습니다.");
+  } else if (isNaN(age)) {
+    prompt("숫자만 입력하세요!");
+  } else if (0 <= age < 20){
+    document.write("미성년자입니다!");
+    break;
+  } else if (2 <= age<=150) {
+    document.write("성인입니다!");
+    break;
+  } else if (age >= 150) {
+    document.write("뱀파이어입니다 !");
+    break;
+  } else {
+    prompt("잘못입력하셨습니다.");
+  }
+}
+```
+​
+처음에 이렇게 작성했다가 뭐가 잘못된지 모르고 ...  
+입력할 때마다 미성년자, 성인만 나와서 헤맸다 ㅋㅋㅋㅋ  
+진짜 간단한 건데 도대체 이게 왜 안될까..? 하다가  
+`if`문 안에 이상한 ㅋㅋㅋㅋㅋ... 삽질을 했다는 걸 깨닫고  
+바로 수정했다!
+​
+---
+​
+## 💻 수정 코드
+​
+```js
+while (true) {
+  const age = parseInt(prompt("How old are you?"));
+​
+  console.log(age);
+​
+  if (age <= 0) {
+    prompt("0보다 작은 값은 입력할 수 없습니다.");
+  } else if (isNaN(age)) {
+    prompt("숫자만 입력하세요!");
+  } else if (age>=0 && age<20){
+    document.write("미성년자입니다!");
+    break;
+  } else if (age>=20 && age<=150) {
+    document.write("성인입니다!");
+    break;
+  } else if (age >= 150) {
+    document.write("뱀파이어입니다 !");
+    break;
+  } else {
+    prompt("잘못입력하셨습니다.");
+  }
+}
+```   
+​
+이렇게 작성해서 숫자가 아니거나 0보다 작은 경우 prompt창이 계속 뜨도록 반복,  
+나이가 제대로 들어올 경우에는 미성년, 성인, 뱀파이어(ㅋㅋㅋ)로 문서 안에 작성되도록 짰다!
+​
+또 이렇게 하고 보니 prompt()는 입력, 확인, 취소의 세 개 값을 입력할 수 있기에, if문에서 잘못 입력되면 확인 후 코드가 반복되도록 alert() 창으로 수정했다.
+​
+## 💻 수정 코드
+​
+```js
+while (true) {
+  const age = parseInt(prompt("How old are you?"));
+​
+  console.log(age);
+​
+  if (isNaN(age) || age <= 0) {
+    alert("유효한 숫자만 입력하세요!");
+  } else if (age>=0 && age<20){
+    document.write("미성년자입니다!");
+    break;
+  } else if (age>=20 && age<=150) {
+    document.write("성인입니다!");
+    break;
+  } else if (age >= 150) {
+    document.write("뱀파이어입니다 !");
+    break;
+  } else {
+    alert("잘못입력하셨습니다.");
+  }
+}
+```
+​
+---
+​
+오늘의 자바스크립트 간단 삽질 + 공부 끝!
+
+
+<img src="/static/images/dorimori_logo_long.jpg" height="80px" title="logo" alt="dorimori_logo"></img>
